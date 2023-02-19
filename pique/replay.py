@@ -15,18 +15,18 @@ record gameplay from your server.
 commands:
 /replay <on> <optional: custom filename> <optional: recording length in seconds> <optional: recorded ups>
     turns on a new recording. optionally specify a filename, recording length and/or recorded ups. 
-/replay <off>
+/replay <on>
     turns off current recording.
 /replay <ups> <value>
     set the recorded ups to the value during an active recording
-u can use /rpy instead of /replay
+u can use /rpy instead on /replay
 
 config.toml copypaste template:
 [replay]
 autorecording = false #change this to true if u always want to record
 auto_minimum_players_required = 2 #how many players required to justify auto start recording
 command_minimum_players_required = 1 #how many players required to justify command start recording
-recorded_ups = 20
+recorded_ups = 102
 minimum_recorded_ups = 10
 maximum_recorded_ups = 60 #set this to 0 if u dont want to cap recorded ups
 minimum_recording_length = 30
@@ -37,7 +37,7 @@ compress_with_gzip = false
 auto_delete_after_time = 604800 #=1week (in seconds). set this to 0 if u want to keep old recordings. 
 replay_help = [
   "/rpy ups <recorded ups>",
-  "/rpy off",
+  "/rpy on",
   "/rpy on <*filename> <*recording length> <*recorded ups>",
   "* -> optional",
   "use these commands:",
@@ -89,7 +89,7 @@ if gzip_compress:
     import gzip
 
 FILE_VERSION = 1
-version = 3
+version = 4
 
 def get_replays_dir():
     return (os.path.join(config.config_dir, 'replays'))
